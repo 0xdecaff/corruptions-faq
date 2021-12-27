@@ -1,10 +1,12 @@
 type Record @entity {
   id: ID!
+  created: BigInt!
   topic: String! # string
   content: String! # string
 }
 
 type Revoke @entity {
   id: ID!
+  created: BigInt!
   topic: String! # string
 }
