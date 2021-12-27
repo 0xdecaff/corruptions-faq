@@ -1,0 +1,26 @@
+specVersion: 0.0.1
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: CorruptionsFAQ
+    network: mainnet
+    source:
+      address: "0x00ca1ef843e8503e9422dd2c0142a37d7adfc996"
+      abi: CorruptionsFAQ
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.5
+      language: wasm/assemblyscript
+      entities:
+        - Record
+        - Revoke
+      abis:
+        - name: CorruptionsFAQ
+          file: ./abis/CorruptionsFAQ.json
+      eventHandlers:
+        - event: Record(indexed string,indexed string)
+          handler: handleRecord
+        - event: Revoke(indexed string)
+          handler: handleRevoke
+      file: ./src/mapping.ts

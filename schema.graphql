@@ -1,0 +1,10 @@
+type Record @entity {
+  id: ID!
+  topic: String! # string
+  content: String! # string
+}
+
+type Revoke @entity {
+  id: ID!
+  topic: String! # string
+}
